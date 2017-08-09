@@ -109,7 +109,7 @@ static int cmd_p(char *args){
 
 	return 0;
 }
-/*
+
 static int cmd_x(char *args){
 	bool *flag = false;
 	char *num_str = strtok(NULL, " ");
@@ -125,7 +125,7 @@ static int cmd_x(char *args){
 
 	return 0;
 }
-
+/*
 static int cmd_w(char *args){
 	set_wp(args);
 
@@ -153,7 +153,7 @@ static struct {
 	{ "si", "Execute step by step", cmd_si},
 	{ "info", "Print info of registers and watchpoint", cmd_info},
 	{ "p", "Compute the value of an expression", cmd_p},
-//	{ "x", "Read content of the given address in memory", cmd_x},
+	{ "x", "Read content of the given address in memory", cmd_x},
 //	{ "w", "Set watchpoint", cmd_w},
 //	{ "d", "Delete watchpoint", cmd_d},
 //***************************************************
