@@ -131,14 +131,14 @@ static int cmd_w(char *args){
 
 	return 0;
 }
-/*
+
 static int cmd_d(char *args){
 	int index = atoi(args);
 	free_wp(index);
 
 	return 0;
 }
-*/
+
 //****************************************************
 
 static struct {
@@ -155,7 +155,7 @@ static struct {
 	{ "p", "Compute the value of an expression", cmd_p},
 	{ "x", "Read content of the given address in memory", cmd_x},
 	{ "w", "Set watchpoint", cmd_w},
-//	{ "d", "Delete watchpoint", cmd_d},
+	{ "d", "Delete watchpoint", cmd_d},
 //***************************************************
 
 	/* TODO: Add more commands */
