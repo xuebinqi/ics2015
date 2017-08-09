@@ -8,6 +8,12 @@
 #include <readline/history.h>
 
 void cpu_exec(uint32_t);
+//***********my code**********************
+//void free_wp(int index);
+//void set_wp(char *expression);
+void print_wp();
+//int check_wp();
+//****************************************
 
 /* We use the ``readline'' library to provide more flexibility to read from stdin. */
 char* rl_gets() {
@@ -48,7 +54,7 @@ static int cmd_si(char *args){
 
 	return 0;
 }
-/*
+
 static int cmd_info(char *args){
 	char *str = strtok(NULL, "$");
 	if (strlen(str) == 1) {
@@ -92,7 +98,7 @@ static int cmd_info(char *args){
 
 	return 0;
 }
-
+/*
 static int cmd_p(char *args){
 	bool flag = true;
 	int num = expr(args, &flag);	
@@ -145,7 +151,7 @@ static struct {
 	{ "q", "Exit NEMU", cmd_q },
 //********************my add code******************
 	{ "si", "Execute step by step", cmd_si},
-//	{ "info", "Print info of registers and watchpoint", cmd_info},
+	{ "info", "Print info of registers and watchpoint", cmd_info},
 //	{ "p", "Compute the value of an expression", cmd_p},
 //	{ "x", "Read content of the given address in memory", cmd_x},
 //	{ "w", "Set watchpoint", cmd_w},

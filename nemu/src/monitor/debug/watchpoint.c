@@ -6,6 +6,15 @@
 static WP wp_pool[NR_WP];
 static WP *head, *free_;
 
+//*******************my code******************
+void print_wp(){
+	WP *tmp = head;
+	while(tmp!=NULL){
+		printf("NO: %d\t%s = %d\n", tmp->NO, tmp->expression, tmp->value);
+		tmp = tmp->next;
+	}
+}
+
 void init_wp_pool() {
 	int i;
 	for(i = 0; i < NR_WP; i ++) {
