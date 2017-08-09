@@ -38,6 +38,103 @@ static int cmd_q(char *args) {
 
 static int cmd_help(char *args);
 
+//***********my add code**********************
+static int cmd_si(char *args){
+	int n = 1;
+	if(args){
+		n = atoi(args);	
+	}
+	cpu_exec(n);
+
+	return 0;
+}
+/*
+static int cmd_info(char *args){
+	char *str = strtok(NULL, "$");
+	if (strlen(str) == 1) {
+		if (str[0] == 'r') {
+			int i = 0;
+		
+			for (i = 0; i < 7; i++){
+				printf("%s\t0x%x\t%d\n", regsl[i], reg_l(i), reg_l(i));
+			}
+
+			for (i = 0; i < 7; i++){
+				printf("%s\t0x%x\t%d\n", regsw[i], reg_w(i), reg_w(i));
+			}
+
+			for (i = 0; i < 7; i++){
+				printf("%s\t0x%x\t%d\n", regsb[i], reg_b(i), reg_b(i));
+			}
+		}
+		else if (str[0] == 'w'){
+			print_wp();
+		}
+	}
+	else {
+		int i = 0;
+		for(i = 0; i < 7; i++){
+			if(strcmp(str, regsl[i]) == 0){
+				printf("%s\t0x%x\t%d\n", str, reg_l(i), reg_l(i));
+			}
+		}
+		for(i = 0; i < 7; i++){
+			if(strcmp(str, regsw[i]) == 0){
+				printf("%s\t0x%x\t%d\n", str, reg_w(i), reg_w(i));
+			}
+		}
+		for(i = 0; i < 7; i++){
+			if(strcmp(str, regsb[i]) == 0){
+				printf("%s\t0x%x\t%d\n", str, reg_b(i), reg_b(i));
+			}
+		}
+	}
+
+	return 0;
+}
+
+static int cmd_p(char *args){
+	bool flag = true;
+	int num = expr(args, &flag);	
+	if(flag == false){
+		return 0;
+	}
+	printf("%d\n", num);
+
+	return 0;
+}
+
+static int cmd_x(char *args){
+	bool *flag = false;
+	char *num_str = strtok(NULL, " ");
+	char *expr_str = strtok(NULL, " ");
+	int num = atoi(num_str);
+	int addr = expr(expr_str, flag);
+
+	int i = 0;
+	for(i = 0; i < num; i++){
+		printf("0x%x\t", swaddr_read(addr + i, 1));
+	}
+	printf("\n");
+
+	return 0;
+}
+
+static int cmd_w(char *args){
+	set_wp(args);
+
+	return 0;
+}
+
+static int cmd_d(char *args){
+	int index = atoi(args);
+	free_wp(index);
+
+	return 0;
+}
+*/
+//****************************************************
+
 static struct {
 	char *name;
 	char *description;
@@ -46,6 +143,14 @@ static struct {
 	{ "help", "Display informations about all supported commands", cmd_help },
 	{ "c", "Continue the execution of the program", cmd_c },
 	{ "q", "Exit NEMU", cmd_q },
+//********************my add code******************
+	{ "si", "Execute step by step", cmd_si},
+//	{ "info", "Print info of registers and watchpoint", cmd_info},
+//	{ "p", "Compute the value of an expression", cmd_p},
+//	{ "x", "Read content of the given address in memory", cmd_x},
+//	{ "w", "Set watchpoint", cmd_w},
+//	{ "d", "Delete watchpoint", cmd_d},
+//***************************************************
 
 	/* TODO: Add more commands */
 
