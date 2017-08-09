@@ -9,10 +9,10 @@
 
 void cpu_exec(uint32_t);
 //***********my code**********************
-//void free_wp(int index);
-//void set_wp(char *expression);
+void free_wp(int index);
+void set_wp(char *expression);
 void print_wp();
-//int check_wp();
+int check_wp();
 //****************************************
 
 /* We use the ``readline'' library to provide more flexibility to read from stdin. */
@@ -125,13 +125,13 @@ static int cmd_x(char *args){
 
 	return 0;
 }
-/*
+
 static int cmd_w(char *args){
 	set_wp(args);
 
 	return 0;
 }
-
+/*
 static int cmd_d(char *args){
 	int index = atoi(args);
 	free_wp(index);
@@ -154,7 +154,7 @@ static struct {
 	{ "info", "Print info of registers and watchpoint", cmd_info},
 	{ "p", "Compute the value of an expression", cmd_p},
 	{ "x", "Read content of the given address in memory", cmd_x},
-//	{ "w", "Set watchpoint", cmd_w},
+	{ "w", "Set watchpoint", cmd_w},
 //	{ "d", "Delete watchpoint", cmd_d},
 //***************************************************
 
