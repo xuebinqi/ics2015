@@ -10,7 +10,7 @@ static WP *head, *free_;
 void print_wp(){
 	WP *tmp = head;
 	while(tmp!=NULL){
-		printf("NO: %d\t%s = %d\n", tmp->NO, tmp->expression, tmp->value);
+		printf("NO: %d\t%s = %d\n", tmp->NO, tmp->expr, tmp->value);
 		tmp = tmp->next;
 	}
 }

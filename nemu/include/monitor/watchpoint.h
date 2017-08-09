@@ -10,7 +10,7 @@ typedef struct watchpoint {
 	/* TODO: Add more members if necessary */
 
 	//**************my code*****************
-	char expression[32];
+	char expr[32];
 	int value;
 	//**************************************
 
